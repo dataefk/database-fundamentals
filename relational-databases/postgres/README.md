@@ -1,4 +1,8 @@
-# dataefk-postgres-database
+# Dataefk Postgres Database
+
+## ERD (Entity Relationship Diagram)
+
+![entity-relationship-diagram](https://github.com/dataefk/database-fundamentals/blob/feature/postgres/assets/images/entity-relationship-diagram-dataefk-postgres.png)
 
 ## Demo
 
