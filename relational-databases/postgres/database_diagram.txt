@@ -1,0 +1,43 @@
+// https://dbdiagram.io
+
+Ref: orders.id_customer > customers.id_customer
+Ref: orders.id_employee > employees.id_employee
+Ref: order_items.id_order > orders.id_order 
+Ref: order_items.id_product > products.id_product 
+
+Table customers {
+    id_customer int [pk]
+    first_name varchar(100)
+    last_name varchar(100)
+    category varchar(30)
+    gender varchar(1)
+}
+
+Table orders {
+    id_order int [pk]
+    id_customer int [not null, unique]
+    id_employee int [not null, unique]
+    amount numeric(10,2)
+    created_at timestamp [note: 'When order created']
+}
+
+Table order_items {
+    id_order int [not null, unique]
+    id_product int [not null, unique]
+    unit_price numeric(10,2)
+    quantity int [default: 1]
+}
+
+Table employees {
+    id_employee int [pk]
+    first_name varchar(100)
+    last_name varchar(100)
+    gender varchar(1)
+    hire_date date
+}
+
+Table products {
+    id_product int [pk]
+    name varchar(100)
+    price numeric(10,2)
+}
