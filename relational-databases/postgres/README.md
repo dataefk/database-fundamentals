@@ -2,11 +2,11 @@
 
 ## ERD (Entity Relationship Diagram)
 
-![entity-relationship-diagram](https://github.com/dataefk/database-fundamentals/blob/feature/postgres/assets/images/entity-relationship-diagram-dataefk-postgres.png)
+![entity-relationship-diagram](https://github.com/dataefk/database-fundamentals/blob/develop/assets/images/entity-relationship-diagram-dataefk-postgres.png)
 
 ## Demo
 
-[![asciicast](https://github.com/dataefk/database-fundamentals/blob/feature/postgres/assets/gifs/dataefk-postgres-database.gif)](https://asciinema.org/a/358218)
+[![asciicast](https://github.com/dataefk/database-fundamentals/blob/develop/assets/gifs/dataefk-postgres-database.gif)](https://asciinema.org/a/358218)
 
 ## Stack name
 
