@@ -7,14 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.0] - 2020-07-21
+## [0.1.0] - 2020-09-13
 
-- Deploy to Heroku
-- Extension toolbar
-- Extension config
-- Tests with pytest
-- Base Architecture
-- CI/CD with github actions
+- Dataefk Postgres Database Local with docker-compose
+- Dataefk Postgres Entity Relationship Diagram
 
 [Unreleased]: https://github.com/dataefk/database-fundamentals/compare/0.1.0...HEAD
 [0.1.0]: https://github.com/dataefk/database-fundamentals/releases/tag/0.1.0
