@@ -1,0 +1,58 @@
+# Stack Name
+# export COMPOSE_PROJECT_NAME=dataefk-postgres-database
+#
+# Run:
+# docker-compose down && docker-compose up -d
+# docker-compose exec dataefk-postgres-server psql -h dataefk-postgres-server -U dataefk
+# SET search_path TO dataefk_adm;
+# \dt
+# --------------------------------------------------------------------------------------
+# Run:
+# docker-compose -f relational-databases/postgres/docker-compose.yml up -d
+# docker-compose -f relational-databases/postgres/docker-compose.yml exec dataefk-postgres-server psql -h dataefk-postgres-server -U dataefk
+# SET search_path TO dataefk_adm;
+# \dt
+
+version: "3.8"
+services:
+  dataefk-postgres-server:
+    container_name: dataefk-postgres-server
+    image: postgres:12
+    restart: always
+    environment:
+      - POSTGRES_USER=dataefk
+      - POSTGRES_PASSWORD=dataefk
+      - POSTGRES_DB=dataefk
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - dataefk-postgres-volume:/var/lib/postgresql/data
+    networks:
+      - dataefk-postgres-network
+
+  dataefk-postgres-client:
+    container_name: dataefk-postgres-client
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=dataefk@email.com
+      - PGADMIN_DEFAULT_PASSWORD=dataefk
+    ports:
+      - "1000:80"
+    volumes:
+      - dataefk-pgadmin-data:/var/lib/pgadmin
+    depends_on:
+      - dataefk-postgres-server
+    networks:
+      - dataefk-postgres-network
+
+volumes:
+  dataefk-pgadmin-data:
+    name: dataefk-pgadmin-volume
+  dataefk-postgres-volume:
+    name: dataefk-postgres-volume
+
+networks:
+  dataefk-postgres-network:
+    driver: bridge
+    name: dataefk-postgres-network
